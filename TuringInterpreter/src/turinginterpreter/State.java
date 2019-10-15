@@ -1,16 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package turinginterpreter;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author Lukas A single state of the Turing machine. Can be accepting or not
- * and has zero or more transitions away from this state.
+ * @author Lukas Thöni A single state of the Turing machine. Can be accepting or
+ * not and has zero or more transitions away from this state.
  */
 public class State {
 

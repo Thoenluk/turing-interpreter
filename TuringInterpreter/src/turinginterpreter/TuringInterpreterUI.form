@@ -362,26 +362,26 @@
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="transitionBuilderHeadMovLabel" max="32767" attributes="0"/>
-                                  <Component id="transitionBuilderHeadMovTF" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="transitionBuilderToBeWrittenTF" min="-2" pref="98" max="-2" attributes="0"/>
+                                  <Component id="transitionBuilderToBeWrittenLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="transitionBuilderToBeWrittenTF" min="-2" pref="98" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="transitionBuilderHeadMovTF" min="-2" pref="98" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Component id="transitionBuilderNextStateDropdown" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="transitionBuilderToBeWrittenLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="transitionBuilderHeadMovLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="transitionBuilderNextStateLabel" min="-2" pref="181" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="transitionBuilderCancelButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="transitionBuilderOpenHelpButton" min="-2" max="-2" attributes="0"/>
@@ -399,16 +399,16 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="transitionBuilderTriggerLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="transitionBuilderHeadMovLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="transitionBuilderToBeWrittenLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="transitionBuilderNextStateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="transitionBuilderHeadMovLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="transitionBuilderTriggerTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="transitionBuilderHeadMovTF" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="transitionBuilderToBeWrittenTF" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="transitionBuilderNextStateDropdown" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="transitionBuilderHeadMovTF" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">

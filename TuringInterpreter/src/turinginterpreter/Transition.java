@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package turinginterpreter;
 
 import java.util.Arrays;
 
 /**
  *
- * @author Lukas A transition, that is, moving from the original state to
+ * @author Lukas Thöni A transition, that is, moving from the original state to
  * another one. This class stores the parameters needed to update the machine's
  * state in each step.
  */
@@ -34,7 +29,7 @@ public class Transition {
      * slot. In toBeWritten, tapes with a wildcard in their slot are not
      * modified.
      */
-    public Transition(char[] trigger, char[] headMovement, char[] toBeWritten, int nextState) {
+    public Transition(char[] trigger, char[] toBeWritten, char[] headMovement, int nextState) {
         this.trigger = trigger;
         this.headMovement = headMovement;
         this.toBeWritten = toBeWritten;
@@ -99,9 +94,9 @@ public class Transition {
         //TODO: Fix order such that toBeWritten comes before headMovement.
         String finishedString = Arrays.toString(trigger);
         finishedString += TuringInterpreter.FIELD_SEPARATOR_CHAR;
-        finishedString += Arrays.toString(headMovement);
-        finishedString += TuringInterpreter.FIELD_SEPARATOR_CHAR;
         finishedString += Arrays.toString(toBeWritten);
+        finishedString += TuringInterpreter.FIELD_SEPARATOR_CHAR;
+        finishedString += Arrays.toString(headMovement);
         finishedString += TuringInterpreter.FIELD_SEPARATOR_CHAR;
         finishedString += Integer.toString(nextState);
         finishedString += TuringInterpreter.TRANSITION_SEPARATOR_CHAR;
@@ -120,7 +115,7 @@ public class Transition {
         readableForm += Arrays.toString(toBeWritten);
         readableForm += ", ";
         readableForm += Arrays.toString(headMovement);
-        readableForm += " -> ";
+        readableForm += " -> State ";
         readableForm += nextState;
         return readableForm;
     }

@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package turinginterpreter;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author Lukas
+ * @author Lukas Thöni
  */
 public class TuringInterpreter {
 
@@ -79,9 +74,7 @@ public class TuringInterpreter {
                     for (int k = 0; k < 3; k++) {
                         stringData[k] = stringData[k].substring(1, stringData[k].length() - 1); //remove brackets
                     }
-                    if (0 == nrOfTapes) { //Since each line must specify all tapes
-                        //even if it contains wildcards, we can pull the number
-                        //of tapes used off of any of them.
+                    if (0 == nrOfTapes) {
                         nrOfTapes = (stringData[0].length() + 1) / 2;
                     }
                     char[] trigger = new char[nrOfTapes];
@@ -89,11 +82,11 @@ public class TuringInterpreter {
                     char[] toBeWritten = new char[nrOfTapes];
                     for (int i = 0; i < nrOfTapes; i++) {
                         trigger[i] = stringData[0].charAt(2 * i);
-                        headMovement[i] = stringData[1].charAt(2 * i);
-                        toBeWritten[i] = stringData[2].charAt(2 * i);
+                        toBeWritten[i] = stringData[1].charAt(2 * i);
+                        headMovement[i] = stringData[2].charAt(2 * i);
                     }
                     int nextState = Integer.parseInt(stringData[3]);
-                    transitions.add(new Transition(trigger, headMovement, toBeWritten, nextState));
+                    transitions.add(new Transition(trigger, toBeWritten, headMovement, nextState));
                 }
             }
             states[j] = new State(Boolean.parseBoolean(orders[0]), transitions, "State " + j);
@@ -117,22 +110,34 @@ public class TuringInterpreter {
      * text parser and come from how Java stringifies arrays.
      */
     public static String machineToString() {
-        String newline = System.getProperty("line.separator");
-        String saveData = "";
-        for (State state : states) {
-            saveData += state.toString();
-            saveData += newline;
+        String newline = System.lineSeparator(), saveData;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < states.length; i++) {
+            sb.append(states[i].toString());
+            if (i != states.length - 1) {
+                sb.append(newline);
+            }
         }
+        saveData = sb.toString();
         saveData = saveData.substring(0, saveData.length());
         return saveData;
     }
 
+    /**
+     * Get the content of each tape combined into one string, separated by
+     * newline characters.
+     *
+     * @return Tape content with your system's newline
+     */
     public static String getTapesAsString() {
         String content = "";
         String newline = System.lineSeparator();
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < tapes.length; i++) {
-            content += tapes[i].getEntireTapeAsString();
-            content += newline;
+            sb.append(tapes[i].getEntireTapeAsString());
+            if (i != tapes.length - 1) {
+                sb.append(newline);
+            }
         }
         return content;
     }

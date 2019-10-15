@@ -163,19 +163,19 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         boolean transitionIsUnique = true, lengthFits = true, formatMatches = true;
         String[] inputData = new String[3];
         inputData[0] = this.transitionBuilderTriggerTF.getText();
-        inputData[1] = this.transitionBuilderHeadMovTF.getText();
-        inputData[2] = this.transitionBuilderToBeWrittenTF.getText();
+        inputData[1] = this.transitionBuilderToBeWrittenTF.getText();
+        inputData[2] = this.transitionBuilderHeadMovTF.getText();
         for (int i = 0; i < 3; i++) {
             inputData[i] = inputData[i].replaceAll(" +", "");
             lengthFits = lengthFits && (2 * tapes.length - 1 == inputData[i].length());
         }
-        inputData[1] = inputData[1].toUpperCase();
+        inputData[2] = inputData[2].toUpperCase();
         for (Transition transition : states[currentState].getTransitions()) {
             transitionIsUnique = transitionIsUnique && !(transition.getTriggerAsString().equals(inputData[0]));
         }
         formatMatches = formatMatches && inputData[0].matches("[^,](,[^,])*");
-        formatMatches = formatMatches && inputData[1].matches("[LNR](,[LNR])*");
-        formatMatches = formatMatches && inputData[2].matches("[^,](,[^,])*");
+        formatMatches = formatMatches && inputData[1].matches("[^,](,[^,])*");
+        formatMatches = formatMatches && inputData[2].matches("[LNR](,[LNR])*");
         if (transitionIsUnique && lengthFits && formatMatches) {
             char[][] data = new char[3][tapes.length];
             for (int i = 0; i < 3; i++) {
@@ -613,18 +613,18 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(transitionBuilderContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(transitionBuilderContainerPanelLayout.createSequentialGroup()
-                        .addGroup(transitionBuilderContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(transitionBuilderHeadMovLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(transitionBuilderHeadMovTF))
+                        .addGroup(transitionBuilderContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(transitionBuilderToBeWrittenTF, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(transitionBuilderToBeWrittenLabel))
                         .addGap(18, 18, 18)
                         .addGroup(transitionBuilderContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(transitionBuilderContainerPanelLayout.createSequentialGroup()
-                                .addComponent(transitionBuilderToBeWrittenTF, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(transitionBuilderHeadMovTF, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(transitionBuilderNextStateDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(transitionBuilderContainerPanelLayout.createSequentialGroup()
-                                .addComponent(transitionBuilderToBeWrittenLabel)
-                                .addGap(34, 34, 34)
+                                .addComponent(transitionBuilderHeadMovLabel)
+                                .addGap(18, 18, 18)
                                 .addComponent(transitionBuilderNextStateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(transitionBuilderContainerPanelLayout.createSequentialGroup()
                         .addComponent(transitionBuilderCancelButton)
@@ -640,15 +640,15 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(transitionBuilderContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(transitionBuilderTriggerLabel)
-                    .addComponent(transitionBuilderHeadMovLabel)
                     .addComponent(transitionBuilderToBeWrittenLabel)
-                    .addComponent(transitionBuilderNextStateLabel))
+                    .addComponent(transitionBuilderNextStateLabel)
+                    .addComponent(transitionBuilderHeadMovLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(transitionBuilderContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(transitionBuilderTriggerTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(transitionBuilderHeadMovTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(transitionBuilderToBeWrittenTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(transitionBuilderNextStateDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(transitionBuilderNextStateDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(transitionBuilderHeadMovTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(transitionBuilderContainerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(transitionBuilderDoneButton)
