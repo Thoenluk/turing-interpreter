@@ -128,7 +128,6 @@ public class TuringInterpreter {
      * @return Tape content with your system's newline
      */
     public static String getTapesAsString() {
-        String content = "";
         String newline = System.lineSeparator();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < tapes.length; i++) {
@@ -189,6 +188,28 @@ public class TuringInterpreter {
         for (int i = 0; i < tapes.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 tapes[i].writeBinaryIntToTapeUnderHead(array[i][j]);
+            }
+            tapes[i].moveHeadToFirstNonEmptyCell();
+        }
+    }
+
+    /**
+     * Writes the ints in arg array to the tapes using unary notation, in order,
+     * separated by '1' rather than empty cells. Previous content is erased.
+     * Note that array must have exactly as many elements as the machine has
+     * tapes.
+     *
+     * @param array The ints to be written to the tapes as unary notation.
+     */
+    public static void writeUnaryArrayToTapes(int[][] array) {
+        emptyTapes();
+        for (int i = 0; i < tapes.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                tapes[i].writeUnaryIntToTapeUnderHead(array[i][j]);
+                if (j != array[i].length - 1) {
+                    tapes[i].executeStep(WILDCARD_CHAR, 'l');
+                    tapes[i].executeStep('1', 'r');
+                }
             }
             tapes[i].moveHeadToFirstNonEmptyCell();
         }

@@ -835,10 +835,10 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="itPlaintextDialogLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="itPlaintextDialogLabel5" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="itPlaintextDialogLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="itBinaryDialogLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="itBinaryDialogLabel2" min="-2" max="-2" attributes="0"/>
+                              <Component id="itBinaryDialogLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="itBinaryDialogLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="453" max="32767" attributes="0"/>
                       </Group>
@@ -859,13 +859,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="itPlaintextDialogLabel4" min="-2" max="-2" attributes="0"/>
+                  <Component id="itBinaryDialogLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="itPlaintextDialogLabel5" min="-2" max="-2" attributes="0"/>
+                  <Component id="itBinaryDialogLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="itBinaryDialogLabel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="itPlaintextDialogLabel6" min="-2" max="-2" attributes="0"/>
+                  <Component id="itBinaryDialogLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jScrollPane7" min="-2" pref="200" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -879,12 +879,12 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="itPlaintextDialogLabel4">
+        <Component class="javax.swing.JLabel" name="itBinaryDialogLabel1">
           <Properties>
             <Property name="text" type="java.lang.String" value="For each tape, enter the numbers to write on each tape on a new line, separated by commas."/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="itPlaintextDialogLabel5">
+        <Component class="javax.swing.JLabel" name="itBinaryDialogLabel2">
           <Properties>
             <Property name="text" type="java.lang.String" value="The first tape is filled by the first line, and so on. Lines can be empty."/>
           </Properties>
@@ -917,14 +917,118 @@
             <Property name="text" type="java.lang.String" value="Cancel"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="itPlaintextDialogLabel6">
+        <Component class="javax.swing.JLabel" name="itBinaryDialogLabel3">
           <Properties>
             <Property name="text" type="java.lang.String" value="After writing, each tape&apos;s head will be placed at the first non-empty cell from the left."/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="itBinaryDialogLabel4">
           <Properties>
             <Property name="text" type="java.lang.String" value="The numbers will be converted to binary notation and written to their respective tapes."/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDialog" name="itUnaryDialog">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="itUnaryDialogLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="itUnaryDialogLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="itUnaryDialogLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="itUnaryDialogLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="453" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="jScrollPane8" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="273" max="-2" attributes="0"/>
+                  <Component id="itUnaryCancelButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="itUnaryOKButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="itUnaryDialogLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="itUnaryDialogLabel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="itUnaryDialogLabel4" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="itUnaryDialogLabel3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jScrollPane8" min="-2" pref="200" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="itUnaryCancelButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="itUnaryOKButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="228" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="itUnaryDialogLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="For each tape, enter the numbers to write on each tape on a new line, separated by commas."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="itUnaryDialogLabel2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="The first tape is filled by the first line, and so on. Lines can be empty."/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane8">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="itUnaryTextArea">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="itUnaryOKButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="OK"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itUnaryOKButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="itUnaryCancelButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancel"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="itUnaryDialogLabel3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="After writing, each tape&apos;s head will be placed at the first non-empty cell from the left."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="itUnaryDialogLabel4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="The numbers will be converted to unary notation and written to their respective tapes."/>
           </Properties>
         </Component>
       </SubComponents>
@@ -1040,6 +1144,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="... with unary numbers"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itUnaryMIActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>

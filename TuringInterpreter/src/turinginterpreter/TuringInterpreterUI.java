@@ -297,14 +297,23 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         itPlaintextCancelButton = new javax.swing.JButton();
         itPlaintextDialogLabel3 = new javax.swing.JLabel();
         itBinaryDialog = new javax.swing.JDialog();
-        itPlaintextDialogLabel4 = new javax.swing.JLabel();
-        itPlaintextDialogLabel5 = new javax.swing.JLabel();
+        itBinaryDialogLabel1 = new javax.swing.JLabel();
+        itBinaryDialogLabel2 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         itBinaryTextArea = new javax.swing.JTextArea();
         itBinaryOKButton = new javax.swing.JButton();
         itBinaryCancelButton = new javax.swing.JButton();
-        itPlaintextDialogLabel6 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        itBinaryDialogLabel3 = new javax.swing.JLabel();
+        itBinaryDialogLabel4 = new javax.swing.JLabel();
+        itUnaryDialog = new javax.swing.JDialog();
+        itUnaryDialogLabel1 = new javax.swing.JLabel();
+        itUnaryDialogLabel2 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        itUnaryTextArea = new javax.swing.JTextArea();
+        itUnaryOKButton = new javax.swing.JButton();
+        itUnaryCancelButton = new javax.swing.JButton();
+        itUnaryDialogLabel3 = new javax.swing.JLabel();
+        itUnaryDialogLabel4 = new javax.swing.JLabel();
         machineDisplayPanel = new MachineDiagram(currentState);
         stepMachineButton = new javax.swing.JButton();
         runMachineButton = new javax.swing.JButton();
@@ -862,9 +871,9 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        itPlaintextDialogLabel4.setText("For each tape, enter the numbers to write on each tape on a new line, separated by commas.");
+        itBinaryDialogLabel1.setText("For each tape, enter the numbers to write on each tape on a new line, separated by commas.");
 
-        itPlaintextDialogLabel5.setText("The first tape is filled by the first line, and so on. Lines can be empty.");
+        itBinaryDialogLabel2.setText("The first tape is filled by the first line, and so on. Lines can be empty.");
 
         itBinaryTextArea.setColumns(20);
         itBinaryTextArea.setRows(5);
@@ -879,9 +888,9 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
 
         itBinaryCancelButton.setText("Cancel");
 
-        itPlaintextDialogLabel6.setText("After writing, each tape's head will be placed at the first non-empty cell from the left.");
+        itBinaryDialogLabel3.setText("After writing, each tape's head will be placed at the first non-empty cell from the left.");
 
-        jLabel1.setText("The numbers will be converted to binary notation and written to their respective tapes.");
+        itBinaryDialogLabel4.setText("The numbers will be converted to binary notation and written to their respective tapes.");
 
         javax.swing.GroupLayout itBinaryDialogLayout = new javax.swing.GroupLayout(itBinaryDialog.getContentPane());
         itBinaryDialog.getContentPane().setLayout(itBinaryDialogLayout);
@@ -892,10 +901,10 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
                 .addGroup(itBinaryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(itBinaryDialogLayout.createSequentialGroup()
                         .addGroup(itBinaryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(itPlaintextDialogLabel4)
-                            .addComponent(itPlaintextDialogLabel5)
-                            .addComponent(jLabel1)
-                            .addComponent(itPlaintextDialogLabel6))
+                            .addComponent(itBinaryDialogLabel1)
+                            .addComponent(itBinaryDialogLabel2)
+                            .addComponent(itBinaryDialogLabel4)
+                            .addComponent(itBinaryDialogLabel3))
                         .addGap(0, 453, Short.MAX_VALUE))
                     .addComponent(jScrollPane7))
                 .addContainerGap())
@@ -910,19 +919,83 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
             itBinaryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(itBinaryDialogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(itPlaintextDialogLabel4)
+                .addComponent(itBinaryDialogLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(itPlaintextDialogLabel5)
+                .addComponent(itBinaryDialogLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addComponent(itBinaryDialogLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(itPlaintextDialogLabel6)
+                .addComponent(itBinaryDialogLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(itBinaryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(itBinaryCancelButton)
                     .addComponent(itBinaryOKButton))
+                .addContainerGap(228, Short.MAX_VALUE))
+        );
+
+        itUnaryDialogLabel1.setText("For each tape, enter the numbers to write on each tape on a new line, separated by commas.");
+
+        itUnaryDialogLabel2.setText("The first tape is filled by the first line, and so on. Lines can be empty.");
+
+        itUnaryTextArea.setColumns(20);
+        itUnaryTextArea.setRows(5);
+        jScrollPane8.setViewportView(itUnaryTextArea);
+
+        itUnaryOKButton.setText("OK");
+        itUnaryOKButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itUnaryOKButtonActionPerformed(evt);
+            }
+        });
+
+        itUnaryCancelButton.setText("Cancel");
+
+        itUnaryDialogLabel3.setText("After writing, each tape's head will be placed at the first non-empty cell from the left.");
+
+        itUnaryDialogLabel4.setText("The numbers will be converted to unary notation and written to their respective tapes.");
+
+        javax.swing.GroupLayout itUnaryDialogLayout = new javax.swing.GroupLayout(itUnaryDialog.getContentPane());
+        itUnaryDialog.getContentPane().setLayout(itUnaryDialogLayout);
+        itUnaryDialogLayout.setHorizontalGroup(
+            itUnaryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(itUnaryDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(itUnaryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(itUnaryDialogLayout.createSequentialGroup()
+                        .addGroup(itUnaryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(itUnaryDialogLabel1)
+                            .addComponent(itUnaryDialogLabel2)
+                            .addComponent(itUnaryDialogLabel4)
+                            .addComponent(itUnaryDialogLabel3))
+                        .addGap(0, 453, Short.MAX_VALUE))
+                    .addComponent(jScrollPane8))
+                .addContainerGap())
+            .addGroup(itUnaryDialogLayout.createSequentialGroup()
+                .addGap(273, 273, 273)
+                .addComponent(itUnaryCancelButton)
+                .addGap(34, 34, 34)
+                .addComponent(itUnaryOKButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        itUnaryDialogLayout.setVerticalGroup(
+            itUnaryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(itUnaryDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(itUnaryDialogLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(itUnaryDialogLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(itUnaryDialogLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(itUnaryDialogLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(itUnaryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(itUnaryCancelButton)
+                    .addComponent(itUnaryOKButton))
                 .addContainerGap(228, Short.MAX_VALUE))
         );
 
@@ -1073,6 +1146,11 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         initialiseTapesSubMenu.add(itBinaryMI);
 
         itUnaryMI.setText("... with unary numbers");
+        itUnaryMI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itUnaryMIActionPerformed(evt);
+            }
+        });
         initialiseTapesSubMenu.add(itUnaryMI);
 
         tapeMenu.add(initialiseTapesSubMenu);
@@ -1426,6 +1504,31 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         this.itBinaryDialog.setVisible(false);
     }//GEN-LAST:event_itBinaryOKButtonActionPerformed
 
+    private void itUnaryOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itUnaryOKButtonActionPerformed
+        String[] lines = itUnaryTextArea.getText().split("\r?\n", tapes.length);
+        String[] numberStrings;
+        int[] numbers;
+        int[][] tapeContents = new int[tapes.length][];
+        for (int i = 0; i < tapes.length; i++) {
+            numberStrings = lines[i].split(",");
+            numbers = new int[numberStrings.length];
+            for (int j = 0; j < numberStrings.length; j++) {
+                numberStrings[j] = numberStrings[j].replaceAll("[ \t]", "");
+                numbers[j] = Integer.parseInt(numberStrings[j]);
+            }
+            tapeContents[i] = numbers;
+        }
+        TuringInterpreter.writeUnaryArrayToTapes(tapeContents);
+        itUnaryTextArea.setText("");
+        this.updateTapesDisplayTA();
+        this.itUnaryDialog.setVisible(false);
+    }//GEN-LAST:event_itUnaryOKButtonActionPerformed
+
+    private void itUnaryMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itUnaryMIActionPerformed
+        this.itUnaryDialog.pack();
+        this.itUnaryDialog.setVisible(true);
+    }//GEN-LAST:event_itUnaryMIActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1469,6 +1572,10 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
     private javax.swing.JMenu initialiseTapesSubMenu;
     private javax.swing.JButton itBinaryCancelButton;
     private javax.swing.JDialog itBinaryDialog;
+    private javax.swing.JLabel itBinaryDialogLabel1;
+    private javax.swing.JLabel itBinaryDialogLabel2;
+    private javax.swing.JLabel itBinaryDialogLabel3;
+    private javax.swing.JLabel itBinaryDialogLabel4;
     private javax.swing.JMenuItem itBinaryMI;
     private javax.swing.JButton itBinaryOKButton;
     private javax.swing.JTextArea itBinaryTextArea;
@@ -1477,14 +1584,18 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
     private javax.swing.JLabel itPlaintextDialogLabel1;
     private javax.swing.JLabel itPlaintextDialogLabel2;
     private javax.swing.JLabel itPlaintextDialogLabel3;
-    private javax.swing.JLabel itPlaintextDialogLabel4;
-    private javax.swing.JLabel itPlaintextDialogLabel5;
-    private javax.swing.JLabel itPlaintextDialogLabel6;
     private javax.swing.JMenuItem itPlaintextMI;
     private javax.swing.JButton itPlaintextOKButton;
     private javax.swing.JTextArea itPlaintextTextArea;
+    private javax.swing.JButton itUnaryCancelButton;
+    private javax.swing.JDialog itUnaryDialog;
+    private javax.swing.JLabel itUnaryDialogLabel1;
+    private javax.swing.JLabel itUnaryDialogLabel2;
+    private javax.swing.JLabel itUnaryDialogLabel3;
+    private javax.swing.JLabel itUnaryDialogLabel4;
     private javax.swing.JMenuItem itUnaryMI;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton itUnaryOKButton;
+    private javax.swing.JTextArea itUnaryTextArea;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1492,6 +1603,7 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JPanel machineDisplayPanel;
     private javax.swing.JDialog machineHasHaltedDialog;
     private javax.swing.JButton machineHasHaltedDialogCancelButton;

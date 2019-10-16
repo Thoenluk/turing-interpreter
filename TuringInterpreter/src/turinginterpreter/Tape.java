@@ -191,7 +191,7 @@ public class Tape {
      * @param integer The integer to be written.
      */
     public void writeUnaryIntToTapeUnderHead(int integer) {
-        char[] unary = new char[integer + 1];
+        char[] unary = new char[integer];
         for (int i = 0; i < integer; i++) {
             unary[i] = '0';
         }
