@@ -110,7 +110,7 @@ public class TuringInterpreter {
      * text parser and come from how Java stringifies arrays.
      */
     public static String machineToString() {
-        String newline = System.lineSeparator(), saveData;
+        String newline = System.lineSeparator();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < states.length; i++) {
             sb.append(states[i].toString());
@@ -118,9 +118,7 @@ public class TuringInterpreter {
                 sb.append(newline);
             }
         }
-        saveData = sb.toString();
-        saveData = saveData.substring(0, saveData.length());
-        return saveData;
+        return sb.toString();
     }
 
     /**
@@ -139,7 +137,7 @@ public class TuringInterpreter {
                 sb.append(newline);
             }
         }
-        return content;
+        return sb.toString();
     }
 
     /**

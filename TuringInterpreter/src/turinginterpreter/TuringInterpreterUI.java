@@ -41,8 +41,8 @@ class MyCustomFilter extends javax.swing.filechooser.FileFilter {
  */
 public class TuringInterpreterUI extends javax.swing.JFrame {
 
-    private static State[] states;
-    private static Tape[] tapes;
+    private static State[] states = TuringInterpreter.states;
+    private static Tape[] tapes = TuringInterpreter.tapes;
     private static int currentState = 0;
     private Timer timer;
 
@@ -157,9 +157,6 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
     }
 
     private void transitionBuilderDialogHandleConfirm() {
-        // TODO: At least pretend to validate input and throw errors on failure.
-        // TODO: Prevent more than one transition with the same trigger. We don't
-        // do indeterministic TMs... yet.
         boolean transitionIsUnique = true, lengthFits = true, formatMatches = true;
         String[] inputData = new String[3];
         inputData[0] = this.transitionBuilderTriggerTF.getText();
@@ -1355,7 +1352,6 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
     }//GEN-LAST:event_machineHasHaltedialogSaveTapesButtonActionPerformed
 
     private void runMachineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runMachineButtonActionPerformed
-        int retval = 0;
         int delay = 0;
         if (timer.isRunning()) {
             timer.stop();
@@ -1363,13 +1359,13 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         } else {
             switch (executionSpeedDropdown.getSelectedItem().toString()) {
                 case "Slow":
-                    delay = 1000;
-                    break;
-                case "Medium":
                     delay = 500;
                     break;
-                case "Fast":
+                case "Medium":
                     delay = 250;
+                    break;
+                case "Fast":
+                    delay = 100;
                     break;
                 case "Instant":
                     break;
