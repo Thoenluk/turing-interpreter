@@ -828,6 +828,11 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         });
 
         itPlaintextCancelButton.setText("Cancel");
+        itPlaintextCancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itPlaintextCancelButtonActionPerformed(evt);
+            }
+        });
 
         itPlaintextDialogLabel3.setText("After writing, each tape's head will be placed at the first non-empty cell from the left.");
 
@@ -887,6 +892,11 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         });
 
         itBinaryCancelButton.setText("Cancel");
+        itBinaryCancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itBinaryCancelButtonActionPerformed(evt);
+            }
+        });
 
         itBinaryDialogLabel3.setText("After writing, each tape's head will be placed at the first non-empty cell from the left.");
 
@@ -932,7 +942,7 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
                 .addGroup(itBinaryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(itBinaryCancelButton)
                     .addComponent(itBinaryOKButton))
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         itUnaryDialogLabel1.setText("For each tape, enter the numbers to write on each tape on a new line, separated by commas.");
@@ -951,6 +961,11 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         });
 
         itUnaryCancelButton.setText("Cancel");
+        itUnaryCancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itUnaryCancelButtonActionPerformed(evt);
+            }
+        });
 
         itUnaryDialogLabel3.setText("After writing, each tape's head will be placed at the first non-empty cell from the left.");
 
@@ -996,7 +1011,7 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
                 .addGroup(itUnaryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(itUnaryCancelButton)
                     .addComponent(itUnaryOKButton))
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1528,6 +1543,21 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         this.itUnaryDialog.pack();
         this.itUnaryDialog.setVisible(true);
     }//GEN-LAST:event_itUnaryMIActionPerformed
+
+    private void itUnaryCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itUnaryCancelButtonActionPerformed
+        this.itUnaryTextArea.setText("");
+        this.itUnaryDialog.setVisible(false);
+    }//GEN-LAST:event_itUnaryCancelButtonActionPerformed
+
+    private void itBinaryCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itBinaryCancelButtonActionPerformed
+        this.itBinaryTextArea.setText("");
+        this.itBinaryDialog.setVisible(false);
+    }//GEN-LAST:event_itBinaryCancelButtonActionPerformed
+
+    private void itPlaintextCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itPlaintextCancelButtonActionPerformed
+        this.itPlaintextTextArea.setText("");
+        this.itPlaintextDialog.setVisible(false);
+    }//GEN-LAST:event_itPlaintextCancelButtonActionPerformed
 
     /**
      * @param args the command line arguments
