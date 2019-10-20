@@ -95,9 +95,12 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
 
     private void enableInputs() {
         modMachineMI.setEnabled(true);
+        modifyMachineButton.setEnabled(true);
         resetMachineMI.setEnabled(true);
         stepMachineButton.setEnabled(true);
         runMachineButton.setEnabled(true);
+        this.executionSpeedlabel.setEnabled(true);
+        executionSpeedDropdown.setEnabled(true);
         this.tapeMenu.setEnabled(true);
         this.resetMachineButton.setEnabled(true);
     }
@@ -283,7 +286,7 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         machineHasHaltedDialogText = new javax.swing.JTextArea();
         machineHasHaltedDialogDisplayTapesButton = new javax.swing.JButton();
         machineHasHaltedialogSaveTapesButton = new javax.swing.JButton();
-        machineHasHaltedDialogCancelButton = new javax.swing.JButton();
+        machineHasHaltedDialogOKButton = new javax.swing.JButton();
         tapeContentDisplayDialog = new javax.swing.JDialog();
         jScrollPane5 = new javax.swing.JScrollPane();
         tapeContentDisplayText = new javax.swing.JTextArea();
@@ -314,6 +317,10 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         itUnaryCancelButton = new javax.swing.JButton();
         itUnaryDialogLabel3 = new javax.swing.JLabel();
         itUnaryDialogLabel4 = new javax.swing.JLabel();
+        turingMachineExplanatoryDialog = new javax.swing.JDialog();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        turingMachineExplanatoryTextField = new javax.swing.JTextPane();
+        turingMachineExplanatoryOKButton = new javax.swing.JButton();
         machineDisplayPanel = new MachineDiagram(currentState);
         stepMachineButton = new javax.swing.JButton();
         runMachineButton = new javax.swing.JButton();
@@ -322,6 +329,9 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         resetMachineButton = new javax.swing.JButton();
         tapeDisplayScrollPane = new javax.swing.JScrollPane();
         tapeDisplayTextArea = new javax.swing.JTextArea();
+        newMachineButton = new javax.swing.JButton();
+        modifyMachineButton = new javax.swing.JButton();
+        openFileButton = new javax.swing.JButton();
         mainMenuBar = new javax.swing.JMenuBar();
         machineMenu = new javax.swing.JMenu();
         newMachineMI = new javax.swing.JMenuItem();
@@ -335,6 +345,8 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         itPlaintextMI = new javax.swing.JMenuItem();
         itBinaryMI = new javax.swing.JMenuItem();
         itUnaryMI = new javax.swing.JMenuItem();
+        helpMenu = new javax.swing.JMenu();
+        helpWhatIsTuringMachineMI = new javax.swing.JMenuItem();
 
         fileChooserWindow.setFileFilter(new MyCustomFilter());
 
@@ -679,7 +691,7 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         transitionBuilderHelpText.setColumns(20);
         transitionBuilderHelpText.setLineWrap(true);
         transitionBuilderHelpText.setRows(5);
-        transitionBuilderHelpText.setText("A transition has four parts:\n\nA trigger, what must be on each tape to trigger this transition,\n\nHow each tape's head should move, with l meaning left, n meaning\nno movement, and r meaning right.\n\nWhat should be written to each tape (in the original\ncell, where the transition was triggered),\n\nAnd the next state the machine should be in afterwards.\n\nEnter the values for each of these parts into the corresponding\ntext field separated by commas, choose the next state from the\ndropdown, and click the Done button to add the transition.\n\nTapes are initialised with space characters (' ') in all fields\nthat were not otherwise written to. You can use the question\nmark character ('?') as a wildcard, meaning:\n\nAny character is accepted if used in the trigger,\n\nOr whichever character was already in the cell is left there if\nused in the \"to be written\" field.");
+        transitionBuilderHelpText.setText("A transition has four parts:\n\nA trigger, what must be on each tape to trigger this transition,\n\nWhat should be written to each tape (in the original\ncell, where the transition was triggered),\n\nHow each tape's head should move, with l meaning left, n meaning\nno movement, and r meaning right.\n\nAnd the next state the machine should be in afterwards.\n\nEnter the values for each of these parts into the corresponding\ntext field separated by commas, choose the next state from the\ndropdown, and click the Done button to add the transition.\n\nTapes are initialised with space characters (' ') in all fields\nthat were not otherwise written to. You can use the question\nmark character ('?') as a wildcard, meaning that any character is accepted if used in the trigger, or whichever character was already in the cell is left there if used in the \"to be written\" field.");
         transitionBuilderHelpText.setWrapStyleWord(true);
         jScrollPane2.setViewportView(transitionBuilderHelpText);
 
@@ -747,10 +759,10 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
             }
         });
 
-        machineHasHaltedDialogCancelButton.setText("Cancel");
-        machineHasHaltedDialogCancelButton.addActionListener(new java.awt.event.ActionListener() {
+        machineHasHaltedDialogOKButton.setText("OK");
+        machineHasHaltedDialogOKButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                machineHasHaltedDialogCancelButtonActionPerformed(evt);
+                machineHasHaltedDialogOKButtonActionPerformed(evt);
             }
         });
 
@@ -761,7 +773,7 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
             .addComponent(jScrollPane4)
             .addGroup(machineHasHaltedDialogLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(machineHasHaltedDialogCancelButton)
+                .addComponent(machineHasHaltedDialogOKButton)
                 .addGap(18, 18, 18)
                 .addComponent(machineHasHaltedDialogDisplayTapesButton)
                 .addGap(18, 18, 18)
@@ -776,7 +788,7 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
                 .addGroup(machineHasHaltedDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(machineHasHaltedDialogDisplayTapesButton)
                     .addComponent(machineHasHaltedialogSaveTapesButton)
-                    .addComponent(machineHasHaltedDialogCancelButton))
+                    .addComponent(machineHasHaltedDialogOKButton))
                 .addContainerGap())
         );
 
@@ -1014,6 +1026,33 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        turingMachineExplanatoryDialog.setMinimumSize(new java.awt.Dimension(430, 498));
+
+        turingMachineExplanatoryTextField.setText("A Turing machine, or state machine, is a state-based processing algorithm. It has a given number of tapes of infinite length divided into single-character cells, a set of states that determine which transitions are currently active, and transitions between these states (or back to the same state) which process the tape's contents.\n\nThe tapes are the memory of the Turing machine, where it receives its initial input and eventually writes its output if any. Each tape has a read/write head that is over one cell at a time. It reports that cell's contents for the purposes of triggering a transition and writes new content into that cell during a transition. It may then move one cell left or right.\n\nEach Turing machine has one or more states. It starts in state 0, changing depending on the transition used. Each state can be defined as accepting or not. This has no intrinsic meaning, but usually implies something about the result of the computation such as only input of a given format ending in an accepting state. A Turing machine should generally halt in an accepting state if nothing went wrong and the input is as desired (return value 0). Halting in an unaccepting state implies something went wrong or the input is incorrect in some form.\n\nTransitions are the major computing component of a Turing machine. Each state has zero or more transitions leading out of it. A transition has four parts:\n\n- Its trigger, what must be written on the current cell of each tape to trigger the transition (The wildcard character ? will cause any input to be accepted on that tape)\n- Its output, what will be written to the current cell of each tape when the transition occurs (The wildcard character ? will cause the current cell content to remain in that cell)\n- Its head movement, whether each tape's head will move left, right, or not at all\n- Its next state, into which the machine will go after the transition is done. This may be the same state as the transition leads out of.\n\nDue to wildcards, multiple transitions may match the same tape content in a given state. If this is the case, the most specific transition trigger with the fewest wildcards is chosen. In the event that there are multiple triggers with the fewest amount of wildcards, the transition whose wildcards appear the latest will be chosen. ([0, 1, ?] over [0, ?, 0])\n\nIf a state has no transition that matches the current tape content, the machine will halt. When it does, it checks whether its current state is accepting and allows its tape content to be read out.");
+        jScrollPane9.setViewportView(turingMachineExplanatoryTextField);
+
+        turingMachineExplanatoryOKButton.setText("OK");
+        turingMachineExplanatoryOKButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                turingMachineExplanatoryOKButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout turingMachineExplanatoryDialogLayout = new javax.swing.GroupLayout(turingMachineExplanatoryDialog.getContentPane());
+        turingMachineExplanatoryDialog.getContentPane().setLayout(turingMachineExplanatoryDialogLayout);
+        turingMachineExplanatoryDialogLayout.setHorizontalGroup(
+            turingMachineExplanatoryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
+            .addComponent(turingMachineExplanatoryOKButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        turingMachineExplanatoryDialogLayout.setVerticalGroup(
+            turingMachineExplanatoryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(turingMachineExplanatoryDialogLayout.createSequentialGroup()
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(turingMachineExplanatoryOKButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1100, 800));
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -1053,8 +1092,10 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         });
 
         executionSpeedDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Slow", "Medium", "Fast", "Instant" }));
+        executionSpeedDropdown.setEnabled(false);
 
         executionSpeedlabel.setText("Execution speed");
+        executionSpeedlabel.setEnabled(false);
 
         resetMachineButton.setText("Reset machine");
         resetMachineButton.setEnabled(false);
@@ -1073,6 +1114,28 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         tapeDisplayTextArea.setEnabled(false);
         tapeDisplayScrollPane.setViewportView(tapeDisplayTextArea);
 
+        newMachineButton.setText("New machine");
+        newMachineButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newMachineButtonActionPerformed(evt);
+            }
+        });
+
+        modifyMachineButton.setText("Modify machine");
+        modifyMachineButton.setEnabled(false);
+        modifyMachineButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modifyMachineButtonActionPerformed(evt);
+            }
+        });
+
+        openFileButton.setText("Open from file");
+        openFileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openFileButtonActionPerformed(evt);
+            }
+        });
+
         machineMenu.setText("Machine");
         machineMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1085,7 +1148,6 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         newMachineMI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newMachineMIActionPerformed(evt);
-                newMachineMIActionPerformed1(evt);
             }
         });
         machineMenu.add(newMachineMI);
@@ -1172,6 +1234,18 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
 
         mainMenuBar.add(tapeMenu);
 
+        helpMenu.setText("Help");
+
+        helpWhatIsTuringMachineMI.setText("What is a Turing machine?");
+        helpWhatIsTuringMachineMI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpWhatIsTuringMachineMIActionPerformed(evt);
+            }
+        });
+        helpMenu.add(helpWhatIsTuringMachineMI);
+
+        mainMenuBar.add(helpMenu);
+
         setJMenuBar(mainMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1185,11 +1259,16 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
                     .addComponent(machineDisplayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(executionSpeedlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(executionSpeedlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(resetMachineButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(runMachineButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(executionSpeedDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(modifyMachineButton, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                     .addComponent(stepMachineButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(executionSpeedDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(newMachineButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(runMachineButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(openFileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -1197,7 +1276,14 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(machineDisplayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(newMachineButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(openFileButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(modifyMachineButton)
+                        .addGap(56, 56, 56)
                         .addComponent(stepMachineButton)
                         .addGap(18, 18, 18)
                         .addComponent(runMachineButton)
@@ -1206,8 +1292,7 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(executionSpeedDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(resetMachineButton))
-                    .addComponent(machineDisplayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(resetMachineButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(tapeDisplayScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1215,10 +1300,6 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void newMachineMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMachineMIActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_newMachineMIActionPerformed
 
     private void openFileMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openFileMIActionPerformed
         int returnVal = fileChooserWindow.showOpenDialog(this);
@@ -1271,12 +1352,12 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_saveMachineMIActionPerformed
 
-    private void newMachineMIActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMachineMIActionPerformed1
+    private void newMachineMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMachineMIActionPerformed
         resetNrOfTapesDialog();
         tapes = null;
         states = null;
         nrOfTapesDialog.setVisible(true);
-    }//GEN-LAST:event_newMachineMIActionPerformed1
+    }//GEN-LAST:event_newMachineMIActionPerformed
 
     private void nrOfTapesOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nrOfTapesOKButtonActionPerformed
         nrOfTapesDialogHandleConfirm();
@@ -1414,9 +1495,9 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         executeMachineStep();
     }//GEN-LAST:event_stepMachineButtonActionPerformed
 
-    private void machineHasHaltedDialogCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machineHasHaltedDialogCancelButtonActionPerformed
+    private void machineHasHaltedDialogOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machineHasHaltedDialogOKButtonActionPerformed
         machineHasHaltedDialog.setVisible(false);
-    }//GEN-LAST:event_machineHasHaltedDialogCancelButtonActionPerformed
+    }//GEN-LAST:event_machineHasHaltedDialogOKButtonActionPerformed
 
     private void tapeContentDisplayOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tapeContentDisplayOKButtonActionPerformed
         tapeContentDisplayDialog.setVisible(false);
@@ -1559,6 +1640,26 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
         this.itPlaintextDialog.setVisible(false);
     }//GEN-LAST:event_itPlaintextCancelButtonActionPerformed
 
+    private void newMachineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMachineButtonActionPerformed
+        this.newMachineMIActionPerformed(evt);
+    }//GEN-LAST:event_newMachineButtonActionPerformed
+
+    private void modifyMachineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyMachineButtonActionPerformed
+        this.modMachineMIActionPerformed(evt);
+    }//GEN-LAST:event_modifyMachineButtonActionPerformed
+
+    private void turingMachineExplanatoryOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turingMachineExplanatoryOKButtonActionPerformed
+        turingMachineExplanatoryDialog.setVisible(false);
+    }//GEN-LAST:event_turingMachineExplanatoryOKButtonActionPerformed
+
+    private void helpWhatIsTuringMachineMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpWhatIsTuringMachineMIActionPerformed
+        this.turingMachineExplanatoryDialog.setVisible(true);
+    }//GEN-LAST:event_helpWhatIsTuringMachineMIActionPerformed
+
+    private void openFileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openFileButtonActionPerformed
+        this.openFileMIActionPerformed(evt);
+    }//GEN-LAST:event_openFileButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1599,6 +1700,8 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
     private javax.swing.JLabel executionSpeedlabel;
     private javax.swing.JMenuItem exitMI;
     private javax.swing.JFileChooser fileChooserWindow;
+    private javax.swing.JMenu helpMenu;
+    private javax.swing.JMenuItem helpWhatIsTuringMachineMI;
     private javax.swing.JMenu initialiseTapesSubMenu;
     private javax.swing.JButton itBinaryCancelButton;
     private javax.swing.JDialog itBinaryDialog;
@@ -1634,15 +1737,18 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JPanel machineDisplayPanel;
     private javax.swing.JDialog machineHasHaltedDialog;
-    private javax.swing.JButton machineHasHaltedDialogCancelButton;
     private javax.swing.JButton machineHasHaltedDialogDisplayTapesButton;
+    private javax.swing.JButton machineHasHaltedDialogOKButton;
     private javax.swing.JTextArea machineHasHaltedDialogText;
     private javax.swing.JButton machineHasHaltedialogSaveTapesButton;
     private javax.swing.JMenu machineMenu;
     private javax.swing.JMenuBar mainMenuBar;
     private javax.swing.JMenuItem modMachineMI;
+    private javax.swing.JButton modifyMachineButton;
+    private javax.swing.JButton newMachineButton;
     private javax.swing.JMenuItem newMachineMI;
     private javax.swing.JButton nrOfTapesCancelButton;
     private javax.swing.JDialog nrOfTapesDialog;
@@ -1652,6 +1758,7 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
     private javax.swing.JSpinner nrOfTapesStateSpinner;
     private javax.swing.JLabel nrOfTapesTapeLabel;
     private javax.swing.JSpinner nrOfTapesTapeSpinner;
+    private javax.swing.JButton openFileButton;
     private javax.swing.JMenuItem openFileMI;
     private javax.swing.JButton resetMachineButton;
     private javax.swing.JMenuItem resetMachineMI;
@@ -1695,5 +1802,8 @@ public class TuringInterpreterUI extends javax.swing.JFrame {
     private javax.swing.JTextField transitionBuilderToBeWrittenTF;
     private javax.swing.JLabel transitionBuilderTriggerLabel;
     private javax.swing.JTextField transitionBuilderTriggerTF;
+    private javax.swing.JDialog turingMachineExplanatoryDialog;
+    private javax.swing.JButton turingMachineExplanatoryOKButton;
+    private javax.swing.JTextPane turingMachineExplanatoryTextField;
     // End of variables declaration//GEN-END:variables
 }

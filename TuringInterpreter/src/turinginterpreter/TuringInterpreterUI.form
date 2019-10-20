@@ -520,7 +520,7 @@
                 <Property name="columns" type="int" value="20"/>
                 <Property name="lineWrap" type="boolean" value="true"/>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="A transition has four parts:&#xa;&#xa;A trigger, what must be on each tape to trigger this transition,&#xa;&#xa;How each tape&apos;s head should move, with l meaning left, n meaning&#xa;no movement, and r meaning right.&#xa;&#xa;What should be written to each tape (in the original&#xa;cell, where the transition was triggered),&#xa;&#xa;And the next state the machine should be in afterwards.&#xa;&#xa;Enter the values for each of these parts into the corresponding&#xa;text field separated by commas, choose the next state from the&#xa;dropdown, and click the Done button to add the transition.&#xa;&#xa;Tapes are initialised with space characters (&apos; &apos;) in all fields&#xa;that were not otherwise written to. You can use the question&#xa;mark character (&apos;?&apos;) as a wildcard, meaning:&#xa;&#xa;Any character is accepted if used in the trigger,&#xa;&#xa;Or whichever character was already in the cell is left there if&#xa;used in the &quot;to be written&quot; field."/>
+                <Property name="text" type="java.lang.String" value="A transition has four parts:&#xa;&#xa;A trigger, what must be on each tape to trigger this transition,&#xa;&#xa;What should be written to each tape (in the original&#xa;cell, where the transition was triggered),&#xa;&#xa;How each tape&apos;s head should move, with l meaning left, n meaning&#xa;no movement, and r meaning right.&#xa;&#xa;And the next state the machine should be in afterwards.&#xa;&#xa;Enter the values for each of these parts into the corresponding&#xa;text field separated by commas, choose the next state from the&#xa;dropdown, and click the Done button to add the transition.&#xa;&#xa;Tapes are initialised with space characters (&apos; &apos;) in all fields&#xa;that were not otherwise written to. You can use the question&#xa;mark character (&apos;?&apos;) as a wildcard, meaning that any character is accepted if used in the trigger, or whichever character was already in the cell is left there if used in the &quot;to be written&quot; field."/>
                 <Property name="wrapStyleWord" type="boolean" value="true"/>
               </Properties>
             </Component>
@@ -601,7 +601,7 @@
               <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                  <Component id="machineHasHaltedDialogCancelButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="machineHasHaltedDialogOKButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="machineHasHaltedDialogDisplayTapesButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -618,7 +618,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="machineHasHaltedDialogDisplayTapesButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="machineHasHaltedialogSaveTapesButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="machineHasHaltedDialogCancelButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="machineHasHaltedDialogOKButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -663,12 +663,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="machineHasHaltedialogSaveTapesButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="machineHasHaltedDialogCancelButton">
+        <Component class="javax.swing.JButton" name="machineHasHaltedDialogOKButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cancel"/>
+            <Property name="text" type="java.lang.String" value="OK"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="machineHasHaltedDialogCancelButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="machineHasHaltedDialogOKButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -1042,6 +1042,55 @@
         </Component>
       </SubComponents>
     </Container>
+    <Container class="javax.swing.JDialog" name="turingMachineExplanatoryDialog">
+      <Properties>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[430, 498]"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="jScrollPane9" pref="475" max="32767" attributes="0"/>
+              <Component id="turingMachineExplanatoryOKButton" alignment="0" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jScrollPane9" pref="440" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="turingMachineExplanatoryOKButton" min="-2" pref="25" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane9">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextPane" name="turingMachineExplanatoryTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="A Turing machine, or state machine, is a state-based processing algorithm. It has a given number of tapes of infinite length divided into single-character cells, a set of states that determine which transitions are currently active, and transitions between these states (or back to the same state) which process the tape&apos;s contents.&#xa;&#xa;The tapes are the memory of the Turing machine, where it receives its initial input and eventually writes its output if any. Each tape has a read/write head that is over one cell at a time. It reports that cell&apos;s contents for the purposes of triggering a transition and writes new content into that cell during a transition. It may then move one cell left or right.&#xa;&#xa;Each Turing machine has one or more states. It starts in state 0, changing depending on the transition used. Each state can be defined as accepting or not. This has no intrinsic meaning, but usually implies something about the result of the computation such as only input of a given format ending in an accepting state. A Turing machine should generally halt in an accepting state if nothing went wrong and the input is as desired (return value 0). Halting in an unaccepting state implies something went wrong or the input is incorrect in some form.&#xa;&#xa;Transitions are the major computing component of a Turing machine. Each state has zero or more transitions leading out of it. A transition has four parts:&#xa;&#xa;- Its trigger, what must be written on the current cell of each tape to trigger the transition (The wildcard character ? will cause any input to be accepted on that tape)&#xa;- Its output, what will be written to the current cell of each tape when the transition occurs (The wildcard character ? will cause the current cell content to remain in that cell)&#xa;- Its head movement, whether each tape&apos;s head will move left, right, or not at all&#xa;- Its next state, into which the machine will go after the transition is done. This may be the same state as the transition leads out of.&#xa;&#xa;Due to wildcards, multiple transitions may match the same tape content in a given state. If this is the case, the most specific transition trigger with the fewest wildcards is chosen. In the event that there are multiple triggers with the fewest amount of wildcards, the transition whose wildcards appear the latest will be chosen. ([0, 1, ?] over [0, ?, 0])&#xa;&#xa;If a state has no transition that matches the current tape content, the machine will halt. When it does, it checks whether its current state is accepting and allows its tape content to be read out."/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="turingMachineExplanatoryOKButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="OK"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="turingMachineExplanatoryOKButtonActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
     <Menu class="javax.swing.JMenuBar" name="mainMenuBar">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="machineMenu">
@@ -1060,7 +1109,7 @@
                 <Property name="text" type="java.lang.String" value="New machine"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newMachineMIActionPerformed,newMachineMIActionPerformed1"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newMachineMIActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="modMachineMI">
@@ -1161,6 +1210,21 @@
             </Menu>
           </SubComponents>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="helpMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Help"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="helpWhatIsTuringMachineMI">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="What is a Turing machine?"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="helpWhatIsTuringMachineMIActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
       </SubComponents>
     </Menu>
   </NonVisualComponents>
@@ -1201,11 +1265,17 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="executionSpeedlabel" alignment="0" min="-2" pref="107" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="executionSpeedlabel" min="-2" pref="107" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
                   <Component id="resetMachineButton" max="32767" attributes="0"/>
-                  <Component id="runMachineButton" alignment="0" max="32767" attributes="0"/>
-                  <Component id="stepMachineButton" alignment="0" max="32767" attributes="0"/>
                   <Component id="executionSpeedDropdown" alignment="0" max="32767" attributes="0"/>
+                  <Component id="modifyMachineButton" pref="140" max="32767" attributes="0"/>
+                  <Component id="stepMachineButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="newMachineButton" max="32767" attributes="0"/>
+                  <Component id="runMachineButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="openFileButton" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -1216,7 +1286,14 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="machineDisplayPanel" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
+                      <Component id="newMachineButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="openFileButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="modifyMachineButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                       <Component id="stepMachineButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="runMachineButton" min="-2" max="-2" attributes="0"/>
@@ -1227,7 +1304,6 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="resetMachineButton" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="machineDisplayPanel" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="tapeDisplayScrollPane" min="-2" pref="150" max="-2" attributes="0"/>
@@ -1291,6 +1367,7 @@
             <StringItem index="3" value="Instant"/>
           </StringArray>
         </Property>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1299,6 +1376,7 @@
     <Component class="javax.swing.JLabel" name="executionSpeedlabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Execution speed"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="resetMachineButton">
@@ -1335,5 +1413,30 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="newMachineButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="New machine"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newMachineButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="modifyMachineButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Modify machine"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modifyMachineButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="openFileButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Open from file"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openFileButtonActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>
